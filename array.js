@@ -1,9 +1,8 @@
 // array
 
-let fruits = ["apple", "banana", "strawberry" , "mango"]    // strings array
+let fruits = ["apple", "banana", "Papaya", "strawberry", "mango"]    // strings array
 
-let exoticFruits = ["DragonFruit" , "Papaya"]   // second array 
-
+let exoticFruits = ["DragonFruit", "Papaya"]   // second array 
 
 console.log("the size of fruits array : " + fruits.length)  // array length
 
@@ -22,34 +21,61 @@ fruits.shift()  // removes first element  // but shifts index to left -1
 fruits.unshift("kiwi")   // adds and element from first index   sshift index to right +1 
 
 //  delete fruits[0]   // delete index but a vacant space remains there and also  length remains same 
- 
 
 const conactedARR = fruits.concat(exoticFruits)  //creates an  third array preserving the original ones  
 
+//const ab = fruits.copyWithin(2, 0)    //Copy to index 2, all elements from index 0: //applies on original 
 
-const ab = fruits.copyWithin(2,0)    //Copy to index 2, all elements from index 0: 
+// console.log(ab)
+
+// array of arrays
+
+let oldArr = [[2, 4, 6], [1, 3, 5]]    // multidimensional array 
+
+let newArr = oldArr.flat()     // returns a new  single array    // 
+
+// console.log(newArr)
+
+const slice = fruits.slice(1, 3)   // returns a section of an array without changinhg the original 
 
 
-console.log(ab)
+//const splice =fruits.splice(1,2)   // deletes the section of an original array // return deleted sections of  array 
+
+
+
+// search 
+
+// console.log(conactedARR)
+
+// console.log(conactedARR.includes("Papaya"))    // true or false 
+
+
+// console.log(conactedARR.indexOf("Papaya"))    // index of the elemnent from left side
+// console.log(conactedARR.lastIndexOf("Papaya"))     // index of the elemnent from right side
 
 
 
 
 
+function predicate(value, index, array) {
+    return value.length === 9
+}
+
+const find11 = conactedARR.find(predicate)
+
+
+// console.log(find11)
 
 
 
 
-// console.log(fruits.reverse())   
-// console.log(fruits.includes("applee"))  
+const employees = ["Aamir", "Tabish", "Bilal", "Burhan"]
 
-// array index  
+const findEmployee = employees.find((value) => { return value === "Burhan" })
 
-// console.log(fruits[0])
-// console.log(fruits[2])
-// console.log(fruits[fruits.length -1])
+// console.log(findEmployee)
 
-let evenNumbers = [2, 4, 6, 8, 10]      // numbers array
+
 
 let cars = [
     {
@@ -70,8 +96,8 @@ let cars = [
         negotiable: false
     },
 
-      {
-        brand: "Nissa3n",
+    {
+        brand: "Nissan",
         age: 1,
         color: "grey",
         price: 25000,
@@ -83,6 +109,26 @@ let cars = [
 
 
 
-// console.log("the length of cars array : " + cars.length)
+console.log("the length of cars array : " + cars.length)
 
-// console.log(cars.reverse())
+
+
+
+const findCar = (requestedColor) => {
+
+    const find = cars.find((value) => {
+        return value.color === requestedColor
+    })
+
+    if (find === undefined) {
+        return console.log("Sorry requested car is not aviailable")
+    } else {
+        return console.log(find)
+    }
+
+}
+
+
+
+
+console.log(findCar("ehite"))
