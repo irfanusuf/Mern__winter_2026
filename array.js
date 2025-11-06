@@ -88,6 +88,7 @@ const findEmployee = employees.find((value) => { return value === "Burhan" })
 const numbersArray = [5 , 23  , 17, 25 , 100]
 
 
+
 numbersArray.sort()  // numbers will sorted as they are strings // first digit will be compared
 
 numbersArray.sort((a,b)=>{return a- b}) // compare function ascending order
@@ -97,14 +98,69 @@ console.log(numbersArray)
 
 numbersArray.forEach((value)=> {console.log(`square of ${value} =`+value * value)})  
 
-
-
-
 // question //
 
 // create a new array which is a squared array of numbersArray
 
 // result [ 25 , 289 , 529 , 625 , 10000]
+
+let squaredArr = []
+
+numbersArray.forEach((value)=>{
+
+    squaredArr.push(value*value)
+
+
+})
+
+console.log( squaredArr)
+
+
+// subtarct 5 from each elemnt of numbersArray
+
+let subtractedArr = []
+
+numbersArray.forEach((value)=>{
+
+
+    subtractedArr.push(value - 5)
+
+    
+})
+
+console.log(subtractedArr)
+
+
+
+// seperate odd and even  from numbers array 
+
+let evenArr = []
+
+let oddArr = []
+
+numbersArray.forEach((value) =>{
+
+    if (value % 2  === 0){
+        evenArr.push(value)
+    }else{
+        oddArr.push(value)
+    }
+})
+
+// value/2
+console.log(oddArr)
+
+console.log(evenArr)
+
+
+// take an array and find prime number in that 
+
+// take an array and find 3rd largest number 
+
+// take an array and find 4th smallest number 
+ 
+
+
 
 
 
