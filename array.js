@@ -71,9 +71,71 @@ const find11 = conactedARR.find(predicate)
 
 const employees = ["Aamir", "Tabish", "Bilal", "Burhan"]
 
+employees.sort()   // original array changes 
+employees.reverse() // original array changes
+
+//const sortEmployess =  employees.toSorted()    // it will created a new sorted array 
+//const reverseEmployess =  employees.toReverse()    // it will created a new reversed array 
+
+
 const findEmployee = employees.find((value) => { return value === "Burhan" })
 
 // console.log(findEmployee)
+
+
+
+
+const numbersArray = [5 , 23  , 17, 25 , 100]
+
+
+numbersArray.sort()  // numbers will sorted as they are strings // first digit will be compared
+
+numbersArray.sort((a,b)=>{return a- b}) // compare function ascending order
+
+console.log(numbersArray)
+
+
+numbersArray.forEach((value)=> {console.log(`square of ${value} =`+value * value)})  
+
+
+
+
+// question //
+
+// create a new array which is a squared array of numbersArray
+
+// result [ 25 , 289 , 529 , 625 , 10000]
+
+
+
+ 
+const dice = [3, 1 , 2 , 4 , 6 , 5]
+
+dice.sort((a,b)=>{return 0.5 - Math.random()})    // random sorrt
+// console.log("Rolling the Dice :  ....")
+// console.log("Result : " + dice[0])
+
+
+
+function findMin(arr) {
+  return Math.min.apply(null, arr);
+}
+
+
+
+function findMax(arr) {
+  return Math.max.apply(null, arr);
+}
+
+
+// console.log(findMin(numbersArray))
+
+
+
+
+
+
+
 
 
 
@@ -82,23 +144,23 @@ let cars = [
         brand: "toyota",
         age: 5,
         color: "red",
-        price: 10000,
+        price: 30000,
         onSale: true,
         negotiable: false
     },
 
     {
         brand: "suzuki",
-        age: 3,
+        age: 7,
         color: "blue",
-        price: 20000,
+        price: 15000,
         onSale: true,
         negotiable: false
     },
 
     {
         brand: "Nissan",
-        age: 1,
+        age: 8,
         color: "grey",
         price: 25000,
         onSale: true,
@@ -112,8 +174,6 @@ let cars = [
 console.log("the length of cars array : " + cars.length)
 
 
-
-
 const findCar = (requestedColor) => {
 
     const find = cars.find((value) => {
@@ -125,10 +185,37 @@ const findCar = (requestedColor) => {
     } else {
         return console.log(find)
     }
-
 }
+// console.log(findCar("ehite"))
+
+
+
+// cars.findIndex((value)=>{ value.color === "red"})
+
+
+// cars.sort((a,b)=>{return a.price - b.price})   // numeric sort 
+
+// cars.sort((a , b) =>{return a.age - b.age})   // numeric sort 
+
+// object sort on the string property 
+
+//  cars.sort((a,b)=>{
+//     let x = a.brand.toLowerCase()
+//     let y = b.brand.toLowerCase()
+
+//     if(x<y){return - 1}
+//     if(x>y){return 1}
+//     return 0
+
+//  })
 
 
 
 
-console.log(findCar("ehite"))
+// console.log( cars)
+
+
+
+
+
+
