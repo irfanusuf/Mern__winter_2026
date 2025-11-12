@@ -4,7 +4,8 @@ const connectDb = require("./config/connectDB")  // import
 
 
 const app = express()
-const port = 4000
+
+const port  = 4000
 
 connectDb()
 
