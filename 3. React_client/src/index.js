@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+
 import ReactDOM from 'react-dom/client';
 import { App } from './components/App';
+import "./global.css"
 
 
 
@@ -9,11 +10,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"))
 
 
 root.render(
-
-
+    // function based component
  <App/>
-
-
 )
 
 
