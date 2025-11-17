@@ -1,7 +1,8 @@
 
 import ReactDOM from 'react-dom/client';
-import { App } from './components/App';
+
 import "./global.css"
+import App from './App';
 
 
 
