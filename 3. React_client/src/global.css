@@ -64,7 +64,7 @@ font-family: Arial, Helvetica, sans-serif;
 
 
 
-.register_form{
+.register_form , .login_form{
 
 display: flex;
 flex-direction: column;
