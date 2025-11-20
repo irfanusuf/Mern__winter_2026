@@ -7,6 +7,8 @@ import Register from "./pages/Register"
 import Contact from "./pages/Contact"
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import { ToastContainer } from 'react-toastify'
+import UserProfile from './pages/UserProfile'
 
 
 const App = () => {
@@ -18,6 +20,7 @@ const App = () => {
       <BrowserRouter>
 
         <Navbar />
+        <ToastContainer/>
 
 
         <div className='main'>
@@ -27,6 +30,7 @@ const App = () => {
             <Route path='/contact' element={<Contact />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/user/profile' element={<UserProfile/>}/>
           </Routes>
         </div>
 
