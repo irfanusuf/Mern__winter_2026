@@ -3,6 +3,7 @@ const connectDb = require("./config/connectDB")  // import
 const { registerHandler, loginhandler, fetchUserhandler } = require("./controllers/userController")
 const bodyParser = require("body-parser")
 const cors = require("cors")
+const isAuth = require("./middlewares/IsAuthorised")
 
 
 
@@ -24,7 +25,10 @@ app.post("/user/register" , registerHandler )
 app.post("/user/login" , loginhandler )
 
 
-app.get("/user/:token" , fetchUserhandler)
+app.get("/user/verify/:token" ,  isAuth,   fetchUserhandler)
+
+
+app.get("/user/bio" , isAuth , ()=>{})
 
 
 
