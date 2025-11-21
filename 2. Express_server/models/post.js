@@ -8,19 +8,25 @@ const schema = mongoose.Schema({
     postPicUrl: { type: String },
     postCaption: { type: String },
     likes: [{ userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" } }],
-    comments: [{
-        comment: {
+    comments: [
+        {
             userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-            text: {type : String},
+            text: { type: String },
             isReported: { type: Boolean, default: false },
-            isEdited: { type: Boolean, default: false }
+            isEdited: { type: Boolean, default: false },
+            replies: [{
+                userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+                text: { type: String },
+                isReported: { type: Boolean, default: false },
+                isEdited: { type: Boolean, default: false }
+            }]
         }
-    }],
+    ],
     shareCount: { type: Number, default: 0 },
 },
-{
-    timestmaps: true
-})
+    {
+        timestmaps: true
+    })
 
 
 

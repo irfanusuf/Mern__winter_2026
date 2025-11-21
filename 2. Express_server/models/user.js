@@ -1,8 +1,7 @@
 const mongoose = require("mongoose")   // new tariqa es6 
 
 
-// es 6 // export 
-const User = mongoose.model("User", {
+const schema = mongoose.Schema({
 
     username: { type: String },
     email: { type: String, require: true },
@@ -23,11 +22,21 @@ const User = mongoose.model("User", {
     comments: [{
         postId: { type: mongoose.Schema.Types.ObjectId, ref: "Post" },
         commentId: { type: mongoose.Schema.Types.ObjectId }
-    }]
+    }],
+    isReported: {
+        reported: { type: Boolean, default: false },
+        reason: [{ reportText: String }]
+    }
 
 
-})
+},
+    {
+        timestamps: true
+    })
 
+
+//old type  export 
+const User = mongoose.model("User", schema)
 
 module.exports = { User }
 
