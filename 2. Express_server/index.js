@@ -29,7 +29,7 @@ app.get("/user/bio" , isAuth , ()=>{})
 
 
 
-app.post("/post/create" ,isAuth , multMid,  createPost)
+app.post("/post/create" ,isAuth, multMid  , createPost )
 
 
 app.listen(port  , ()=>{console.log("server listening on port 4000")} )

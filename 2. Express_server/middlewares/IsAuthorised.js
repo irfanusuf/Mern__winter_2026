@@ -7,9 +7,11 @@ const isAuth = (req, res, next) => {
 
     try {
 
-        const { token } = req.params
+        const { token } = req.query    // query paramter ?token=  // param /:token
 
-        if (token === null) {
+        console.log("token" , token)
+
+        if (token === undefined || token === null) {
             return res.status(401).json({ message: "UnAuthorised Kindly Login again !" })
         }
 

@@ -1,6 +1,5 @@
 const { uploadToCloudinary } = require("../config/cloudinary")
-
-
+const {Post} = require("../models/post")
 
 
 

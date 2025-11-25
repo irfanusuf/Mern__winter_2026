@@ -6,7 +6,7 @@ const schema = mongoose.Schema({
 
     postCaption: { type: String },
 
-    userId : {type : mongoose.Schema.Types.ObjectId , ref : "User" , require : true} , 
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", require: true },
 
     likes: [{ userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" } }],
 
@@ -33,9 +33,9 @@ const schema = mongoose.Schema({
         timestmaps: true
     })
 
-    const Post = mongoose.Model("Post", schema)
+const Post = mongoose.model("Post", schema)
 
-    module.exports = {Post}
+module.exports = { Post }
 
 
 
