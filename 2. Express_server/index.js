@@ -4,7 +4,7 @@ const { registerHandler, loginhandler, fetchUserhandler } = require("./controlle
 const bodyParser = require("body-parser")
 const cors = require("cors")
 const isAuth = require("./middlewares/IsAuthorised")
-const { createPost } = require("./controllers/postControllers")
+const { createPost, likePost, commentOnPost } = require("./controllers/postControllers")
 const multMid = require("./middlewares/multer")
 
 
@@ -30,6 +30,26 @@ app.get("/user/bio" , isAuth , ()=>{})
 
 
 app.post("/post/create" ,isAuth, multMid  , createPost )
+app.get("/post/like" , isAuth , likePost)      // enhance the logic in which postid is added to the likesGiven Arr of User 
+app.post("/post/comment" , isAuth , commentOnPost)  // enhance the logic in which postid and cooment id  is added to the commentsGiven Arr of User 
+
+// report the comment
+// edit the comment 
+// report the post 
+// report the user // send the reason with reportText // send mail to user 
+// user follow 
+// user unfollow
+// user update 
+// bio update
+// profile pic upload 
+// story upload 
+// multiple story upload 
+// reply on someones comment   // and save that in user comments Given Arr 
+
+
+
+
+
 
 
 app.listen(port  , ()=>{console.log("server listening on port 4000")} )

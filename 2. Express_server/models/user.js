@@ -37,8 +37,9 @@ const schema = mongoose.Schema({
 
     
     isReported: {
-        reported: { type: Boolean, default: false },
-        reason: [{ reportText: String }]
+        reasonResult: { type: Boolean, default: false },
+        reason: [{ reportText: String }],
+        banned :{type : Boolean , default :false}
     }
 
 
