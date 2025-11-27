@@ -2,9 +2,8 @@ const e = require("express")
 const { User } = require("../models/user")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
+const { transporter } = require("../config/nodemailer")
 require('dotenv').config()
-
-
 
 
 const registerHandler = async (req, res) => {
@@ -26,14 +25,26 @@ const registerHandler = async (req, res) => {
 
         const encryptPass = await bcrypt.hash(password, 10)
 
-        const newUser = await User.create({ email, username, password: encryptPass })
+        await User.create({ email, username, password: encryptPass })
 
+        const mailOptions = {
 
-        if (newUser) {
-            return res.status(201).json({ messsage: "New User created Succesfully!" })
-        } else {
-            return res.json({ messsage: "Some thing went Wrong !" })
+            from: "postmaster@algoacademy.in",
+            to: email,
+            subject: "Registration Succesfull",
+            html: "<h2> Welcome to the trinkle buddies we are very happy that u joined our platform</h2>"
         }
+
+        await transporter.sendMail(mailOptions)
+
+
+        // if (sendMail.rejected) {
+        //     console.log(sendMail)    
+        // }
+
+
+        return res.status(201).json({ messsage: "New User created Succesfully!" })
+
 
 
     } catch (error) {
@@ -89,9 +100,9 @@ const fetchUserhandler = async (req, res) => {
     try {
 
 
-        console.log("request user" , req.user)
+        console.log("request user", req.user)
 
-        let {userId} = req.user
+        let { userId } = req.user
 
         let user = await User.findById(userId)    // userId objectID
 

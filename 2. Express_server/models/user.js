@@ -1,18 +1,15 @@
 const mongoose = require("mongoose")   // new tariqa es6 
 
 
-const schema = mongoose.Schema({
+const Userschema = new mongoose.Schema({
 
     username: { type: String },
-
     email: { type: String, require: true },
-
     password: { type: String, require: true },
-
     posts: [{ postId: { type: mongoose.Schema.Types.ObjectId, ref: "Post" } }],
     followers: [{ userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" } }],    // array hai userIds ka 
     following: [{ userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" } }],     //  array hai userIds ka
-    
+
 
     profilePic: { type: String },
 
@@ -35,11 +32,11 @@ const schema = mongoose.Schema({
         commentId: { type: mongoose.Schema.Types.ObjectId }
     }],
 
-    
+
     isReported: {
         reasonResult: { type: Boolean, default: false },
         reason: [{ reportText: String }],
-        banned :{type : Boolean , default :false}
+        banned: { type: Boolean, default: false }
     }
 
 
@@ -49,9 +46,13 @@ const schema = mongoose.Schema({
     })
 
 
-//old type  export 
-const User = mongoose.model("User", schema)
 
-module.exports = { User }
+const User = mongoose.model("User", Userschema)
+
+
+module.exports = {User} 
+
+
+
 
 

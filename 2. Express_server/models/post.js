@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const schema = mongoose.Schema({
+const schema = new mongoose.Schema({
 
     postPicUrl: { type: String },
 
@@ -35,7 +35,11 @@ const schema = mongoose.Schema({
 
 const Post = mongoose.model("Post", schema)
 
+
+
+
 module.exports = { Post }
+
 
 
 

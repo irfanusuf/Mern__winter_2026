@@ -29,7 +29,6 @@ const createPost = async (req, res) => {
 
 }
 
-
 const likePost = async (req, res) => {
     try {
         // const postId = req.query.postId  
@@ -47,9 +46,9 @@ const likePost = async (req, res) => {
 
         if (alreadyLiked) {
             // remove Like 
-            const findIndex =   post.likes.indexof(userId)    // 13 
-            post.likes.splice(findIndex , 1)
-        
+            const findIndex = post.likes.indexof(userId)    // 13 
+            post.likes.splice(findIndex, 1)
+
             return res.json({ message: "already liked the post !" })
 
         } else {
@@ -68,51 +67,25 @@ const likePost = async (req, res) => {
     }
 }
 
-
 const commentOnPost = async (req, res) => {
+    try {
+        const { postId } = req.query
+        const { userId } = req.user
+        const { text } = req.body
 
- try {
+        let post = await Post.findById(postId)
 
-     const {postId} = req.query
+        const commentOBJ = {
+            text: text,
+            userId: userId
+        }
+        post.comments.push(commentOBJ)
 
-     const {userId}   = req.user
-
-     const {text} = req.body
-
-
-     let post = await Post.findById(postId)
-
-    const commentOBJ =  {
-        text : text,
-        userId : userId
+        await post.save()
+        return res.json({ message: "Comment SuccessFull !" })
+    } catch (error) {
+        console.log(error)
     }
-
-
-     post.comments.push(commentOBJ)
-
-
-     await post.save()
-
-    return res.json({message : "Comment SuccessFull !"})
-
-
-
-
-
-
-
-
-
-
-    
- } catch (error) {
-    console.log(error)
- }
-
-
-
 }
 
-
-
-module.exports = { createPost , likePost , commentOnPost }
+module.exports = { createPost, likePost, commentOnPost }
