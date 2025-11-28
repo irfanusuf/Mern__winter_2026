@@ -29,7 +29,7 @@ const registerHandler = async (req, res) => {
 
         const mailOptions = {
 
-            from: "postmaster@algoacademy.in",
+            from: process.env.SMTP_USER,
             to: email,
             subject: "Registration Succesfull",
             html: "<h2> Welcome to the trinkle buddies we are very happy that u joined our platform</h2>"
