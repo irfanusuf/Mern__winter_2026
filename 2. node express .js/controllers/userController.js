@@ -1,48 +1,79 @@
 const User = require("../models/userModel")
+const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
 
-
+// register controller
 
 
 async function registerUser(req, res) {
 
-    const {username , email , password} = req.body  // request object 
+    const { username, email, password } = req.body  // request object 
 
-    if(!username || !email || !password ){
-        return res.json({message : "All credential are required !"})
+    if (!username || !email || !password) {
+        // view ko error message bhegte hai 
+        return res.render("register", { errMessage: "All credential are required !" })
+    }
+    const existingUser = await User.findOne({ email })   // time consuming step
+
+    if (existingUser) {
+        return res.render("register", { errMessage: "Email already Exists !" })
     }
 
-   const newUser =  await User.create({username , email , password})   /// db may save keryga 
+    const encryptedPass = await bcrypt.hash(password, 10)
 
-   if(newUser){
-    res.json({message : "User created Succesfully!"})
-   }
+    // manipulating the model // create user
+    const newUser = await User.create({ username, email, password: encryptedPass })   /// db may save keryga 
+
+
+    // view ko success message bhegte hai 
+    if (newUser) {
+        res.redirect("login")
+    }
 }
-
-
-
 
 async function userLogin(req, res) {
 
-    const {email , password} = req.body
+    try {
 
-    if(email === ""|| password === ""){
-        return res.json({message :"email and password both are required !"})
+    const { email, password } = req.body
+    if (email === "" || password === "") {
+        return res.render("login", { errMessage: "Email and password both are required !" })
     }
 
-    const existingUser = await User.findOne({email})
+    const existingUser = await User.findOne({ email })
 
-    if(!existingUser){
-        return res.json({message : "User with this email not found !"})
+    if (!existingUser) {
+        return res.render("login", { errMessage: "User with this email not found !" })
     }
 
-    if(password === existingUser.password) {
-         return res.json({message : "Logged in succesfully!"})
-    }else{
-        return res.json({message : "Password incorrect"})
-    }
+    if (await bcrypt.compare(password, existingUser.password)) {
 
+        const payload = {
+            userId: existingUser._id,
+            username: existingUser.username,
+            email: existingUser.email
+        }
+
+        const secretkey =  "anyrandomStringcanbeSecretKey"
+
+        const token = await jwt.sign(payload, secretkey ,{ expiresIn : 7 * 24 * 60 * 60 * 1000 } )
+
+        res.cookie("authToken" , token , {maxAge :   7 * 24 * 60 * 60 * 1000  })
+        
+
+        return res.render("login", { suxsMessage: "Logged in succesfully!" })
+    } else {
+        return res.render("login", { errMessage: "Password incorrect" })
+    }
+        
+    } catch (error) {
+        console.error(error)
+    }
 
 }
+
+
+
 
 
 
