@@ -1,0 +1,83 @@
+
+
+
+
+/* About Hero */
+.about-hero {
+padding: 60px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+
+.about-text {
+width: 50%;
+}
+
+
+.about-text h1 {
+font-size: 42px;
+margin-bottom: 20px;
+}
+
+
+.about-text p {
+margin-bottom: 20px;
+color: #555;
+font-size: 16px;
+}
+
+
+.about-img img {
+width: 350px;
+border-radius: 10px;
+}
+
+
+/* Mission */
+.mission {
+text-align: center;
+padding: 50px 100px;
+}
+
+
+.mission h2 {
+font-size: 32px;
+margin-bottom: 15px;
+}
+
+
+.mission p {
+font-size: 16px;
+color: #555;
+}
+
+
+/* Values */
+.values {
+padding: 60px 100px;
+text-align: center;
+}
+
+
+.values h2 {
+font-size: 32px;
+margin-bottom: 20px;
+}
+
+
+.value-grid {
+display: flex;
+justify-content: center;
+gap: 20px;
+}
+
+
+.value-box {
+background: orange;
+padding: 20px 30px;
+border-radius: 12px;
+color: #fff;
+font-size: 18px;
+}

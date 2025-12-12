@@ -12,6 +12,8 @@ create index.js file
 
 npm init -y     // package.json file will be  created
 
-then write your program in index.js 
+then write your program in server.js 
 
-then write node index.js in the terminal to start your program 
+then write node server.js    or npm start (if script is in package.json)  in the terminal to start your program 
+
+

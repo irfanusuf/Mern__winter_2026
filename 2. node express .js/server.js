@@ -1,7 +1,6 @@
-
-
 const express = require("express")
 const path = require("path")
+const {engine} = require("express-handlebars")
 
 
 const { registerUser, userLogin } = require("./controllers/userController")
@@ -15,7 +14,22 @@ connectDb()
 // by default our view engine is set to html  // but working with html is tedious 
 // use hbs for ease
 
+
+
 app.set('view engine', 'hbs');
+app.set("views" ,  path.join(__dirname , "views"  , "pages") )      // "./views/pages"
+
+app.engine("hbs" , engine({
+    extname : "hbs",
+    defaultLayout : "layout",
+    layoutsDir : path.join(__dirname , "views" , "layouts"),      //  "./views/layouts"
+    partialsDir : path.join(__dirname , "views" , "partials"),     // "./views/partials"
+    helpers : {}
+}))
+
+
+
+
 
 
 // middlewares
@@ -25,14 +39,31 @@ app.use(express.urlencoded({ extended: true }))
 
 // routes   // GET
 app.get("/" , (request,response)=>{response.render("index")})
+app.get("/services" , (req,res)=>{res.render("services")})
+app.get("/articles" , (req,res)=>{res.render("articles")})
+app.get("/about" , (req,res)=>{res.render("about")})
+app.get("/carrer" , (req,res)=>{res.render("carrer")})
+
+
+
+
+
+
+
 app.get("/user/register" , (req,res) => {res.render("register")})
 app.get("/user/login" , (req,res)=>{res.render("login")} )
+
 
 // app.get("/user/login" , (req,res)=>{res.sendFile(path.join(__dirname , "public" , "login.html"))} )
 
 //routes  // POST
 app.post("/user/register" , registerUser)
 app.post("/user/login" , userLogin)
+
+
+
+
+
 
 
 
