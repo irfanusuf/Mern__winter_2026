@@ -15,8 +15,8 @@ connectDb()
 // use hbs for ease
 
 
-
 app.set('view engine', 'hbs');
+
 app.set("views" ,  path.join(__dirname , "views"  , "pages") )      // "./views/pages"
 
 app.engine("hbs" , engine({
