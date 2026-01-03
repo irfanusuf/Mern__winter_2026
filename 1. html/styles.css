@@ -1,0 +1,108 @@
+ body {
+     margin: 0;
+     padding: 0;
+ }
+
+.btn_black{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background-color: black;
+    color: aliceblue;
+    padding: 10px 20px;
+    border: 1px solid black ;
+    border-radius: 30px;
+    font-size: 15px;
+}
+
+.btn_black_outline{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background-color: aliceblue;
+    color: black;
+    padding: 10px 20px;
+    border: 1px solid black ;
+    border-radius: 30px;
+    font-size: 15px;
+}
+
+
+
+ .navbar {
+     background-color: rgb(65, 60, 60);
+     color: aliceblue;
+     height: 50px;
+     display: flex;
+     align-items: center;
+
+     >ul {
+         display: flex;
+         list-style-type: none;
+         gap: 40px;
+
+         >li {
+
+             >a {
+                 color: aliceblue;
+             }
+         }
+     }
+
+ }
+
+
+
+ .hero_section {
+
+     /* display: flex; */
+     max-width: 1300px;
+     margin: auto;
+     margin-top: 100px;
+
+
+
+     .hero_title {
+
+         >h1 {
+             font-size: 72px;
+             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+             text-align: center;
+             font-weight: 500;
+             margin-bottom: 0;
+         }
+
+         >p{
+            text-align: center;
+            color: rgb(66, 66, 66);
+            font-family: sans-serif;
+     
+
+         }
+
+         >.cta_buttons{
+         
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+
+         }
+
+     }
+
+
+     .hero_image {
+         background-color: beige;
+        margin-top: 50px;
+        height: 400px ;
+        border-radius: 20px;
+
+        >img{
+            width: 100%;
+        }
+
+     }
+
+
+ }
