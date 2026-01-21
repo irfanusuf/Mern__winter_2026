@@ -35,6 +35,8 @@
 
   > h2 {
     font-size: 44px;
+    margin-top: 20px;
+    margin-bottom: 30px;
   }
 
   .cards {
@@ -56,6 +58,9 @@
       border-radius: 8px;
         transition: all 0.3s ease-in;
 
+        >h2{
+          margin: 10px 0;
+        }
 
       > img {
         width: 400px;
@@ -63,11 +68,9 @@
 
       > p {
         color: grey;
+        margin: 20px 0px;
       }
 
-      > h3 {
-        margin: 0px;
-      }
 
       > ul {
         padding-left: 0px;
@@ -85,14 +88,14 @@
       }
 
       &:hover{
-        transform: scale(1.1);
+        transform: scale(1.05);
         background-color: rgba(202, 185, 240, 0.436);
       }
     }
 
     > .card_center {
       border: 1px solid green;
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
   }
 }
