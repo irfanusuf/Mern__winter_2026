@@ -58,7 +58,7 @@
       border-radius: 8px;
         transition: all 0.3s ease-in;
 
-        >h2{
+        >h2 ,h3{
           margin: 10px 0;
         }
 
@@ -73,8 +73,7 @@
 
 
       > ul {
-        padding-left: 0px;
-        list-style-type: none;
+    
         > li {
           padding-bottom: 5px;
           color: grey;
@@ -99,6 +98,71 @@
     }
   }
 }
+
+
+.why_Trust_us{
+
+  margin-top: 100px;
+
+  >h2{
+    text-align: center;
+
+  }
+
+
+  >.main{
+
+    display: flex;
+    justify-content: center;
+    gap : 40px;
+    max-width: 1600px;
+    margin: auto;
+ 
+    min-height: 200px;
+    margin-top: 50px;
+
+
+    >.left , .right{
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      >.animation{
+        width: 150px;
+        height: 150px;
+   
+      }
+
+
+      >.text{
+
+        width: 380px;
+
+         >h3{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-style: italic;
+      }
+
+      >p{
+        margin-top: 30px;
+        font-style: oblique;
+        color: grey;
+      }
+
+      }
+     
+
+    }
+
+  
+
+  }
+
+
+}
+
+
 
 .services_achivement {
   min-height: 20vh;
